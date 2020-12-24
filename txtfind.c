@@ -18,7 +18,7 @@ int main(int argc, char **argv)
     pointer = (char **)malloc(MAXLINES * sizeof(char *));
     if (!pointer)
     {
-   	 printf("Failed to read david!!");	
+   	 printf("Failed to read");	
         puts("There is not enough memory for the program. Sorry.\n");
         exit(1);
     }
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
     
 
 
-    int p;
+
     fgets(string, WORD, stdin);
     int numOfCharInTHEWORD = getword(string);
     pointer[0] = malloc(numOfCharInTHEWORD * sizeof(char));
@@ -50,7 +50,7 @@ int main(int argc, char **argv)
 
     if (theChar == 'a')
     {
-        printf("Option a! \n");
+        //printf("Option a! \n");
         for (int j = 2; j < numOfRows; j++)
         {
             if (substring(pointer[j], pointer[0]) == 1)
@@ -61,7 +61,7 @@ int main(int argc, char **argv)
     }
     else
     {
-    printf("Option b! \n");
+    //printf("Option b! \n");
         for (int j = 2; j < numOfRows; j++)
         {
             
@@ -139,6 +139,7 @@ int substring(char *str1, char *str2)
 }
 int similar(char *s, char *t, int n)
 { // wanna reach t from s in n moves
+    int answer=0;
     if (n == 0 && strcmp(s, t) == 0)
     {
         return 1;
@@ -165,7 +166,12 @@ int similar(char *s, char *t, int n)
         }
     }
     diff = Scount - Tcount;
-    int answer = diff == n ? 1 : 0;
+    if(diff==0 || diff == 1){
+    answer=1;
+    }
+    
+    
+    
     return answer;
 }
 

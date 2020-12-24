@@ -1,16 +1,15 @@
 CC = gcc
 FLAGS = -Wall 
 
-all: main
+all: isort txtfind
 
-main: isort.o txtfind.o
-	$(CC) $(FLAGS) -o main.o isort.o txtfind.o
 
-isort.o: isort.c
-	$(CC) $(FLAGS)  -o isort.o isort.c 
 
-txtfind.o: txtfind.c
-	$(CC) $(FLAGS) -o txtfind.o txtfind.c 
+isort: isort.c
+	$(CC) $(FLAGS)  -o isort isort.c 
+
+txtfind: txtfind.c
+	$(CC) $(FLAGS) -o txtfind txtfind.c 
 
 .PHONY: clean
 
